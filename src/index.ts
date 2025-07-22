@@ -52,7 +52,8 @@ const main = async () => {
   const partyId = match[1];
   const sessionId = match[2];
   inviteSession.once("answered", async () => {
-    // invite the call queue agent to the conference
+    // invite the call queue session to the conference
+    // whoever answers the call queue call will be joining the conference
     await rc
       .restapi()
       .account()
