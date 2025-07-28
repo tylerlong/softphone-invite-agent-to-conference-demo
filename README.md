@@ -22,13 +22,23 @@ Edit `.env` and specify credentials.
 yarn test
 ```
 
+A outbound call will be made to the call queue number. Once the call is answered
+by a call agent, the call agent will be brought into a conference.
+
+The conference recording will be saved as a *.wav file in the current folder.
+You may play the file to confirm that conference is working as expected:
+
+```shell
+play -t raw -b 16 -r 16000 -e signed-integer [file-name].wav
+```
+
 ## Conclusion
 
 If we make calls to an arbitrary number, we don't know if that number is a
-regular number or call queue number.
+regular number or a call queue number.
 
-So it doesn't make sense to handle the call queue differently. Just deem it as a
-regular phone number.
+So it doesn't make sense to handle the call queue number differently. Just deem
+it as a regular phone number.
 
 We simply invite the call queue session to conference. Whichever agent answers
 the call queue call will join the conference.
